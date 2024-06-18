@@ -10,5 +10,6 @@ services:
       - POSTGRES_PASSWORD=yourpassword
     ports:
       - 5432:5432
+  #here we need dockerized the app
 volumes:
   postgres-db:

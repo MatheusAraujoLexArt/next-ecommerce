@@ -1,11 +1,13 @@
 const express = require("express")
+const cors = require("cors");
 const { GracefulShutdownServer } = require("medusa-core-utils")
+const app = express();
 
-const loaders = require("@medusajs/medusa/dist/loaders/index").default
+app.use(cors());
+const loaders = require("@medusajs/medusa/dist/loaders/index").default;
 
-;(async() => {
+(async() => {
   async function start() {
-    const app = express()
     const directory = process.cwd()
 
     try {

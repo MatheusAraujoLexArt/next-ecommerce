@@ -2,6 +2,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+:root {
+  --primaryColor: #394457;
+  --secondaryColor: #FFFFFF;
+  --greenColor: #53E79C;
+  --blueColor: #2ED9F5;
+  --whiteWithBlurColor: #F3F4F6;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
