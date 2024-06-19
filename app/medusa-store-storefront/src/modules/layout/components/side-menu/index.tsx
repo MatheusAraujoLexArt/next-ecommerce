@@ -86,7 +86,7 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
                         />
                       </div>
                       <Text className="txt-compact-medium text-whiteWithBlurColor opacity-70">
-                      LexGifts ® {new Date().getFullYear()}. All rights reserved.
+                      LexGift ® {new Date().getFullYear()}. All rights reserved.
                       </Text>
                     </div>
                   </div>

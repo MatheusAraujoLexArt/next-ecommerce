@@ -4,13 +4,15 @@ import { listRegions } from "@lib/data"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import Logo from '../../../../assets/lexgift_small_logo.png'
+import Image from "next/image"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions) => regions)
 
   return (
     <div className="sticky top-0 inset-x-0 z-50">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-primaryColor border-ui-border-base">
+      <header className="relative h-16 mx-auto border-b duration-200 bg-primaryColor border-ui-border-base mb-6">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="h-full">
@@ -24,7 +26,15 @@ export default async function Nav() {
               className="text-secondaryColor text-2xl txt-compact-xlarge-plus hover:opacity-800 uppercase"
               data-testid="nav-store-link"
             >
-              LexGifts
+              <div className="pt-4 pb-4">
+                <Image
+                  src={Logo}
+                  alt="logo"
+                  layout="cover"
+                  quality={100}
+                  height={60}
+                />
+                </div>
             </LocalizedClientLink>
           </div>
 
