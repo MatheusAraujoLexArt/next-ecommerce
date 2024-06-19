@@ -25,6 +25,8 @@ module.exports = {
         secondaryColor: "var(--secondaryColor)",
         greenColor: "var(--greenColor)",
         blueColor: "var(--blueColor)",
+        whiteWithBlurColor: "var(--whiteWithBlurColor)",
+        blackColor: "var(--blackColor)",
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",
