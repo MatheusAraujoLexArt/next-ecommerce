@@ -5,6 +5,10 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { ProductCollectionWithPreviews } from "types/global";
 import Image from "next/image";
 
+import adsBannerImage from '../../../../assets/home-carousel/ads-banner.jpeg'
+import adsComputerBannerImage from '../../../../assets/home-carousel/ad-banner.png'
+import netflixBannerImage from '../../../../assets/home-carousel/netflix-banner.jpeg'
+
 // import { register } from 'swiper/element/bundle';
 
 // register();
@@ -16,9 +20,15 @@ import 'swiper/css/scrollbar';
 const Carousel = ({ collections }: {
   collections: ProductCollectionWithPreviews[]
 }) => {
-  const LexArtProductsCollection = collections.find(col => col.handle === "merch");
+  // const LexArtProductsCollection = collections.find(col => col.handle === "merch");
 
-  const { products }: any = LexArtProductsCollection;
+  // const { products }: any = LexArtProductsCollection;
+
+  const products = [
+    { title: 'ads-smartphone-banner', thumbnail: adsBannerImage },
+    { title: 'ads-computer-banner', thumbnail: adsComputerBannerImage },
+    { title: 'netflix-banner', thumbnail: netflixBannerImage },
+  ]
   // if (!products) {
   //   return null
   // }
