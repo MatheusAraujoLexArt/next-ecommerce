@@ -47,8 +47,8 @@ const AddAddress = ({ region }: { region: Region }) => {
         onClick={open}
         data-testid="add-address-button"
       >
-        <span className="text-base-semi">New address</span>
-        <Plus />
+        <span className="text-secondaryColor text-base-semi">New address</span>
+        <Plus color="#FFFFFF" />
       </button>
 
       <Modal isOpen={state} close={close} data-testid="add-address-modal">

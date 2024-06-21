@@ -22,22 +22,22 @@ const OrderCard = ({ order }: OrderCardProps) => {
   }, [order])
 
   return (
-    <div className="bg-white flex flex-col" data-testid="order-card">
-      <div className="uppercase text-large-semi mb-1">
-        #<span data-testid="order-display-id">{order.display_id}</span>
+    <div className="bg-blackColor flex flex-col" data-testid="order-card">
+      <div className="text-secondaryColor uppercase text-large-semi mb-1">
+        #<span className="text-secondaryColor" data-testid="order-display-id">{order.display_id}</span>
       </div>
       <div className="flex items-center divide-x divide-gray-200 text-small-regular text-ui-fg-base">
-        <span className="pr-2" data-testid="order-created-at">
+        <span className="text-secondaryColor pr-2" data-testid="order-created-at">
           {new Date(order.created_at).toDateString()}
         </span>
-        <span className="px-2" data-testid="order-amount">
+        <span className="text-secondaryColor px-2" data-testid="order-amount">
           {formatAmount({
             amount: order.total,
             region: order.region,
             includeTaxes: false,
           })}
         </span>
-        <span className="pl-2">{`${numberOfLines} ${
+        <span className="text-secondaryColor pl-2">{`${numberOfLines} ${
           numberOfLines > 1 ? "items" : "item"
         }`}</span>
       </div>
@@ -52,13 +52,13 @@ const OrderCard = ({ order }: OrderCardProps) => {
               <Thumbnail thumbnail={i.thumbnail} images={[]} size="full" />
               <div className="flex items-center text-small-regular text-ui-fg-base">
                 <span
-                  className="text-ui-fg-base font-semibold"
+                  className="text-secondaryColor font-semibold"
                   data-testid="item-title"
                 >
                   {i.title}
                 </span>
-                <span className="ml-2">x</span>
-                <span data-testid="item-quantity">{i.quantity}</span>
+                <span className="text-secondaryColor ml-2">x</span>
+                <span className="text-secondaryColor" data-testid="item-quantity">{i.quantity}</span>
               </div>
             </div>
           )

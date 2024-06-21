@@ -110,9 +110,9 @@ const AccountNav = ({
       <div className="hidden small:block" data-testid="account-nav">
         <div>
           <div className="pb-4">
-            <h3 className="text-base-semi">Account</h3>
+            <h3 className="text-secondaryColor">Account</h3>
           </div>
-          <div className="text-base-regular">
+          <div className="text-secondaryColor">
             <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
               <li>
                 <AccountNavLink
@@ -181,8 +181,8 @@ const AccountNavLink = ({ href, route, children, 'data-testid': dataTestId }: Ac
   return (
     <LocalizedClientLink
       href={href}
-      className={clx("text-ui-fg-subtle hover:text-ui-fg-base", {
-        "text-ui-fg-base font-semibold": active,
+      className={clx("text-secondaryColor hover:opacity-50", {
+        "text-blueColor text-xl font-bold": active,
       })}
       data-testid={dataTestId}
     >

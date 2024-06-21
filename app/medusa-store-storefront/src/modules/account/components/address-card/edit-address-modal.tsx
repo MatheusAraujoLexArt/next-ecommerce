@@ -73,7 +73,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
         )}
         data-testid="address-container"
       >
-        <div className="flex flex-col">
+        <div className="text-secondaryColor flex flex-col">
           <Heading className="text-left text-base-semi" data-testid="address-name">
             {address.first_name} {address.last_name}
           </Heading>
@@ -98,19 +98,19 @@ const EditAddress: React.FC<EditAddressProps> = ({
         </div>
         <div className="flex items-center gap-x-4">
           <button
-            className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
+            className="text-secondaryColor text-small-regular flex items-center gap-x-2"
             onClick={open}
             data-testid="address-edit-button"
           >
-            <Edit />
+            <Edit color="#FFFFFF" />
             Edit
           </button>
           <button
-            className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
+            className="text-secondaryColor text-small-regular flex items-center gap-x-2"
             onClick={removeAddress}
             data-testid="address-delete-button"
           >
-            {removing ? <Spinner /> : <Trash />}
+            {removing ? <Spinner /> : <Trash color="#FFFFFF" />}
             Remove
           </button>
         </div>

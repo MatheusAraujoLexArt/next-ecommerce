@@ -30,7 +30,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
   }, [state])
 
   return (
-    <form action={formAction} className="w-full overflow-visible">
+    <form action={formAction} className="text-secondaryColor w-full overflow-visible">
       <AccountInfo
         label="Name"
         currentInfo={`${customer.first_name} ${customer.last_name}`}
