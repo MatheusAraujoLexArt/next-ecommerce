@@ -118,4 +118,14 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+
+  .product-wrapper:nth-child(3n+1) img {
+    border: 9px solid #53E79C;
+  }
+  .product-wrapper:nth-child(3n+2) img {
+      border: 9px solid #2ED9F5;
+  }
+  .product-wrapper:nth-child(3n) img {
+      border: 9px solid #F9DC5C;
+  }
 }

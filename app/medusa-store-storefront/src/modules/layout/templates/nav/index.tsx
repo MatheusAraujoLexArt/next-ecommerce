@@ -12,7 +12,7 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-primaryColor border-ui-border-base">
+      <header className="relative h-16 mx-auto border-b duration-200 bg-blackColor border-ui-border-base">
         <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="h-full">
@@ -23,10 +23,11 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="text-secondaryColor text-2xl txt-compact-xlarge-plus hover:opacity-800 uppercase"
+              className="text-secondaryColor text-3xl txt-compact-xlarge-plus hover:opacity-800 uppercase"
               data-testid="nav-store-link"
             >
-              <div className="pt-4 pb-4">
+              LexGift
+              {/* <div className="pt-4 pb-4">
                 <Image
                   src={Logo}
                   alt="logo"
@@ -34,7 +35,7 @@ export default async function Nav() {
                   quality={100}
                   height={60}
                 />
-                </div>
+                </div> */}
             </LocalizedClientLink>
           </div>
 
