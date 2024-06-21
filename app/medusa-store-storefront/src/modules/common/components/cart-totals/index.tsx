@@ -32,13 +32,13 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
     <div>
       <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
         <div className="flex items-center justify-between">
-          <span className="flex gap-x-1 items-center">
+          <span className="flex gap-x-1 items-center text-secondaryColor">
             Subtotal
             <Tooltip content="Cart total excluding shipping and taxes.">
               <InformationCircleSolid color="var(--fg-muted)" />
             </Tooltip>
           </span>
-          <span data-testid="cart-subtotal" data-value={subtotal || 0}>
+          <span className="text-secondaryColor" data-testid="cart-subtotal" data-value={subtotal || 0}>
             {getAmount(subtotal)}
           </span>
         </div>
@@ -54,15 +54,15 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
             </span>
           </div>
         )}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between text-secondaryColor">
           <span>Shipping</span>
-          <span data-testid="cart-shipping" data-value={shipping_total || 0}>
+          <span className="text-secondaryColor" data-testid="cart-shipping" data-value={shipping_total || 0}>
             {getAmount(shipping_total)}
           </span>
         </div>
         <div className="flex justify-between">
-          <span className="flex gap-x-1 items-center ">Taxes</span>
-          <span data-testid="cart-taxes" data-value={tax_total || 0}>
+          <span className="flex gap-x-1 items-center text-secondaryColor">Taxes</span>
+          <span className="text-secondaryColor" data-testid="cart-taxes" data-value={tax_total || 0}>
             {getAmount(tax_total)}
           </span>
         </div>
@@ -80,7 +80,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
         )}
       </div>
       <div className="h-px w-full border-b border-gray-200 my-4" />
-      <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
+      <div className="text-secondaryColor flex items-center justify-between mb-2 txt-medium ">
         <span>Total</span>
         <span
           className="txt-xlarge-plus"

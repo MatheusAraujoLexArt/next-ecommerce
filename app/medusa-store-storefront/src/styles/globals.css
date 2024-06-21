@@ -128,4 +128,13 @@
   .product-wrapper:nth-child(3n) img {
       border: 9px solid #F9DC5C;
   }
+
+  th {
+    background-color: #101010;
+  }
+  
+  tr:hover {
+    background-color: #101010;
+    opacity: 0.8;
+  }
 }

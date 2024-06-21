@@ -56,7 +56,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
   const [message, formAction] = useFormState(submitDiscountForm, null)
 
   return (
-    <div className="w-full bg-white flex flex-col">
+    <div className="w-full bg-blackColor flex flex-col">
       <div className="txt-medium">
         {gift_cards.length > 0 && (
           <div className="flex flex-col mb-4">
@@ -148,7 +148,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
             </Label>
             {isOpen && (
               <>
-                <div className="flex w-full gap-x-2 items-center">
+                <div className="flex w-full gap-x-2 items-center text-black">
                   <Input
                     label="Please enter code"
                     name="code"
