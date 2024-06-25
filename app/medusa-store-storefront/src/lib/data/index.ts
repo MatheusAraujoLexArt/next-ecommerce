@@ -471,6 +471,7 @@ export const getProductsList = cache(async function ({
         limit,
         offset: pageParam,
         region_id: region.id,
+        q: searchQuery ? searchQuery : '',
         ...queryParams,
       },
       { next: { tags: ["products"] } }
@@ -480,32 +481,17 @@ export const getProductsList = cache(async function ({
       throw err
     })
 
-
-  // const transformedProducts = products.map((product) => {
-  //   return transformProductPreview(product, region!)
-  // })
-
-  // const nextPage = count > pageParam + 1 ? pageParam + 1 : null
-
-  // return {
-  //   response: { products: transformedProducts, count },
-  //   nextPage,
-  //   queryParams,
-  // }
-
-  const filteredProductsBySearchQuery: any = searchQuery ? products.filter(prod => prod?.title?.toLowerCase().includes(searchQuery?.toLowerCase())) : products;
-
-  const transformedProducts = filteredProductsBySearchQuery.map((product: any) => {
-    return transformProductPreview(product, region!)
-  })
-
-  const nextPage = filteredProductsBySearchQuery.length > pageParam + 1 ? pageParam + 1 : null
-
-  return {
-    response: { products: transformedProducts, count: filteredProductsBySearchQuery.length },
-    nextPage,
-    queryParams,
-  }
+    const transformedProducts = products.map((product) => {
+      return transformProductPreview(product, region!)
+    })
+  
+    const nextPage = count > pageParam + 1 ? pageParam + 1 : null
+  
+    return {
+      response: { products: transformedProducts, count },
+      nextPage,
+      queryParams,
+    }
 })
 
 export const getProductsListWithSort = cache(
