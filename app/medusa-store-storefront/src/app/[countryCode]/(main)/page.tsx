@@ -9,7 +9,7 @@ import { cache } from "react"
 import Carousel from "@modules/home/components/carousel"
 
 export const metadata: Metadata = {
-  title: "LexGift",
+  title: "LexProducts",
   description:
     "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }

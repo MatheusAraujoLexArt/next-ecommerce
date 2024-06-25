@@ -26,7 +26,7 @@ export default async function Nav() {
               className="text-secondaryColor text-3xl txt-compact-xlarge-plus hover:opacity-800 uppercase"
               data-testid="nav-store-link"
             >
-              LexGift
+              LexProducts
               {/* <div className="pt-4 pb-4">
                 <Image
                   src={Logo}

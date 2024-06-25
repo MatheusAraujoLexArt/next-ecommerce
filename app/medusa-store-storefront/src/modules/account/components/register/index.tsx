@@ -19,10 +19,10 @@ const Register = ({ setCurrentView }: Props) => {
   return (
     <div className="max-w-sm flex flex-col items-center" data-testid="register-page">
       <h1 className="text-secondaryColor text-large-semi uppercase mb-6">
-        Become a LexGift Member
+        Become a LexProducts Member
       </h1>
       <p className="text-secondaryColor text-center text-base-regular mb-4">
-        Create your LexGift Member profile, and get access to an enhanced
+        Create your LexProducts Member profile, and get access to an enhanced
         shopping experience.
       </p>
       <form className="w-full flex flex-col" action={formAction}>

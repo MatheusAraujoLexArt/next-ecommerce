@@ -18,7 +18,7 @@ export default async function Footer() {
               href="/"
               className="text-secondaryColor txt-compact-xlarge-plus uppercase"
             >
-              LexGift
+              LexProducts
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
@@ -161,7 +161,7 @@ export default async function Footer() {
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
           <Text className="txt-compact-medium text-whiteWithBlurColor opacity-70">
-            LexGift ® {new Date().getFullYear()}. All rights reserved.
+            LexProducts ® {new Date().getFullYear()}. All rights reserved.
           </Text>
           <MedusaCTA />
         </div>
