@@ -2,6 +2,9 @@ import { getProductsListWithSort, getRegion } from "@lib/data"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+// import products from "@medusajs/medusa/dist/api/routes/admin/products"
+// import { api } from "services/api"
+// import { ProductPreviewType } from "types/global"
 
 const PRODUCT_LIMIT = 12
 
@@ -15,6 +18,7 @@ type PaginatedProductsParams = {
 export default async function PaginatedProducts({
   sortBy,
   page,
+  searchQuery,
   collectionId,
   categoryId,
   productsIds,
@@ -22,6 +26,7 @@ export default async function PaginatedProducts({
 }: {
   sortBy?: SortOptions
   page: number
+  searchQuery: string
   collectionId?: string
   categoryId?: string
   productsIds?: string[]
@@ -56,10 +61,46 @@ export default async function PaginatedProducts({
     queryParams,
     sortBy,
     countryCode,
+    searchQuery,
   })
 
-  const totalPages = Math.ceil(count / PRODUCT_LIMIT)
+  
+  // console.log('products', products)
+  // console.log('count', count)
+  // console.log('obj', {
+  //   page,
+  //   queryParams,
+  //   sortBy,
+  //   countryCode,
+  // })
 
+
+  // let filteredProducts: ProductPreviewType[] = [];
+  // if(searchQuery) {
+  //   console.log('ativa função de filtro')
+
+  //   await api.get(`http://localhost:9001/search?q=${searchQuery}`)
+  //   .then((response) => {
+  //     filteredProducts = response.data;
+  //   })
+  // }
+
+  // const productsArrayCondition: ProductPreviewType[] = searchQuery ? filteredProducts : products;
+  // const countCondition: number = searchQuery ? filteredProducts.length : count;
+
+  const totalPages = Math.ceil(count / PRODUCT_LIMIT)
+  // const totalPages = Math.ceil(countCondition / PRODUCT_LIMIT);
+
+  // console.log('teste', {
+  //   page
+  // })
+  // console.log('teste', {
+  //   page,
+  //   totalPages,
+  //   countCondition,
+  // })
+  // console.log('searchQuery', searchQuery)
+  
   return (
     <>
       <ul className="grid grid-cols-2 w-full small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8" data-testid="products-list">

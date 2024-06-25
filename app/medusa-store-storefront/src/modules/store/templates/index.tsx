@@ -10,10 +10,12 @@ const StoreTemplate = ({
   sortBy,
   page,
   countryCode,
+  searchQuery,
 }: {
   sortBy?: SortOptions
   page?: string
   countryCode: string
+  searchQuery: any
 }) => {
   const pageNumber = page ? parseInt(page) : 1
 
@@ -22,13 +24,14 @@ const StoreTemplate = ({
       <RefinementList sortBy={sortBy || "created_at"} />
       <div className="w-full">
         <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">All products</h1>
+          <h1 data-testid="store-page-title">{searchQuery ? `Resultados para: ${searchQuery}` : 'All products'}</h1>
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts
             sortBy={sortBy || "created_at"}
             page={pageNumber}
             countryCode={countryCode}
+            searchQuery={searchQuery}
           />
         </Suspense>
       </div>

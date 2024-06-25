@@ -12,6 +12,7 @@ type Params = {
   searchParams: {
     sortBy?: SortOptions
     page?: string
+    searchQuery: any
   }
   params: {
     countryCode: string
@@ -19,7 +20,7 @@ type Params = {
 }
 
 export default async function StorePage({ searchParams, params }: Params) {
-  const { sortBy, page } = searchParams
+  const { sortBy, page, searchQuery } = searchParams
 
   return (
     <div className="bg-blackColor">
@@ -27,6 +28,7 @@ export default async function StorePage({ searchParams, params }: Params) {
         sortBy={sortBy}
         page={page}
         countryCode={params.countryCode}
+        searchQuery={searchQuery}
       />
     </div>
   )

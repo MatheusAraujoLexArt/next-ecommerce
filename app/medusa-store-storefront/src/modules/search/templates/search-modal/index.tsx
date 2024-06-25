@@ -8,11 +8,12 @@ import { SEARCH_INDEX_NAME, searchClient } from "@lib/search-client"
 import Hit from "@modules/search/components/hit"
 import Hits from "@modules/search/components/hits"
 import SearchBox from "@modules/search/components/search-box"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function SearchModal() {
   const router = useRouter()
   const searchRef = useRef(null)
+  const [searchText, setSearchText] = useState('');
 
   // close modal on outside click
   const handleOutsideClick = (event: MouseEvent) => {
@@ -54,30 +55,46 @@ export default function SearchModal() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const handleSearch = async () => {
+    if(!searchText) {
+      return
+    }
+    
+    try {
+      if(searchText) {
+        router.push(`/store?searchQuery=${encodeURIComponent(searchText)}`);
+      }
+    } catch (error) {
+      console.log('search product error');
+    }
+  };
+
+  const handleClear = () => {
+    setSearchText('');
+  };
+
   return (
     <div className="relative z-[75]">
-      <div className="fixed inset-0 bg-opacity-75 backdrop-blur-md opacity-100 h-screen w-screen" />
-      <div className="fixed inset-0 px-5 sm:p-0" ref={searchRef}>
-        <div className="flex flex-col justify-start w-full h-fit transform p-5 items-center text-left align-middle transition-all max-h-[75vh] bg-transparent shadow-none">
-          <InstantSearch
-            indexName={SEARCH_INDEX_NAME}
-            searchClient={searchClient}
-          >
-            <div
-              className="flex absolute flex-col h-fit w-full sm:w-fit"
-              data-testid="search-modal-container"
-            >
-              <div className="w-full flex items-center gap-x-2 p-4 bg-[rgba(3,7,18,0.5)] text-ui-fg-on-color backdrop-blur-2xl rounded-rounded">
-                <MagnifyingGlassMini />
-                <SearchBox />
-              </div>
-              <div className="flex-1 mt-6">
-                <Hits hitComponent={Hit} />
-              </div>
-            </div>
-          </InstantSearch>
-        </div>
+  <div className="fixed inset-0 bg-opacity-75 backdrop-blur-md opacity-100 h-screen w-screen" />
+  <div className="fixed inset-0 flex justify-center items-center px-5 sm:p-0" ref={searchRef}>
+    <div className="flex flex-col justify-center items-center w-full h-fit p-5 text-left align-middle transition-all max-h-[75vh] bg-transparent shadow-none">
+      <div>
+        <input
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search products..."
+          className="p-2"
+        />
+        <button onClick={handleSearch} className="bg-primaryColor hover:opacity-50 text-white font-bold py-2 px-4 rounded ml-2">
+          Search
+        </button>
+        <button onClick={handleClear} className="bg-red-500 hover:opacity-50 text-white font-bold py-2 px-4 rounded ml-2">
+          Clean
+        </button>
       </div>
     </div>
+  </div>
+</div>
   )
 }

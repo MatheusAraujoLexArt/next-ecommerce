@@ -446,10 +446,12 @@ export const getProductsList = cache(async function ({
   pageParam = 0,
   queryParams,
   countryCode,
+  searchQuery,
 }: {
   pageParam?: number
   queryParams?: StoreGetProductsParams
   countryCode: string
+  searchQuery?: string
 }): Promise<{
   response: { products: ProductPreviewType[]; count: number }
   nextPage: number | null
@@ -478,14 +480,29 @@ export const getProductsList = cache(async function ({
       throw err
     })
 
-  const transformedProducts = products.map((product) => {
+
+  // const transformedProducts = products.map((product) => {
+  //   return transformProductPreview(product, region!)
+  // })
+
+  // const nextPage = count > pageParam + 1 ? pageParam + 1 : null
+
+  // return {
+  //   response: { products: transformedProducts, count },
+  //   nextPage,
+  //   queryParams,
+  // }
+
+  const filteredProductsBySearchQuery: any = searchQuery ? products.filter(prod => prod?.title?.toLowerCase().includes(searchQuery?.toLowerCase())) : products;
+
+  const transformedProducts = filteredProductsBySearchQuery.map((product: any) => {
     return transformProductPreview(product, region!)
   })
 
-  const nextPage = count > pageParam + 1 ? pageParam + 1 : null
+  const nextPage = filteredProductsBySearchQuery.length > pageParam + 1 ? pageParam + 1 : null
 
   return {
-    response: { products: transformedProducts, count },
+    response: { products: transformedProducts, count: filteredProductsBySearchQuery.length },
     nextPage,
     queryParams,
   }
@@ -497,11 +514,13 @@ export const getProductsListWithSort = cache(
     queryParams,
     sortBy = "created_at",
     countryCode,
+    searchQuery,
   }: {
     page?: number
     queryParams?: StoreGetProductsParams
     sortBy?: SortOptions
     countryCode: string
+    searchQuery?: string
   }): Promise<{
     response: { products: ProductPreviewType[]; count: number }
     nextPage: number | null
@@ -518,6 +537,7 @@ export const getProductsListWithSort = cache(
         limit: 100,
       },
       countryCode,
+      searchQuery,
     })
 
     const sortedProducts = sortProducts(products, sortBy)
